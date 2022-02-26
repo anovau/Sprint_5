@@ -1,0 +1,38 @@
+body {
+  background-image: url(/Images/monsters-icons.jpeg);
+  background-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+}
+.texto {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card {
+  background-color: white;
+  width: 700px;
+  height: 400px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 5px 22px 34px -1px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+p {
+  margin: 1rem;
+}
+
+input {
+  background-color: #4b86dd;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 2rem;
+}
