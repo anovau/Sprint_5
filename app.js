@@ -1,18 +1,13 @@
 const url = "https://icanhazdadjoke.com/"
 
+async function mostrarChiste(){
 
-function mostrarChiste(){
-  
-    fetch(url, {    
+    const chiste = await fetch(url, {    
         headers: {                             
             'Accept': 'application/JSON' 
         }
-        
-    })
-   
-    
+    });
+    const chisteObj = await chiste.json();
+    console.log(chisteObj)
 
 }
-
-
-
