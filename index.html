@@ -6,14 +6,23 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <title>Document</title>
   </head>
   <body>
     <div class="card">
       <h1>Preparat per riure? 🤣</h1>
       <p>Fes clic al botó per veure un acudit</p>
-      <input type="button" value="Següent acudit" onclick="mostrarChiste()" />
+      <div class="votacion">
+        <p id="errorVotacion">Sisplau vota l'acudit</p>
+        <img src="/Images/3.png" onclick="votar(3)" />
+        <img src="/Images/2.png" onclick="votar(2)" />
+        <img src="/Images/1.png" onclick="votar(1)" />
+      </div>
+      <input type="button" value="Següent acudit" onclick="handleGetJoke()" />
     </div>
     <script src="app.js"></script>
   </body>
