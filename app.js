@@ -1,6 +1,7 @@
 const url = "https://icanhazdadjoke.com/";
 var parrafo = document.querySelector("p");
 var votacion = document.getElementById("errorVotacion");
+var currentWeather = document.getElementById("CurrentWeather");
 
 let chisteObj = {};
 let currentJoke = {};
@@ -47,3 +48,13 @@ function saveJoke() {
   reportAcudits.push(currentJoke);
   console.log(reportAcudits);
 }
+
+async function getWeather() {
+  const responseWeather = await fetch(
+    "https://api.openweathermap.org/data/2.5/weather?lat=41.3828939&lon=2.1774322&appid=d8ec460060f73b8a21776452facfeeec&lang=ca"
+  );
+  let responseData = await responseWeather.json();
+
+  currentWeather.innerHTML = responseData.weather[0].description;
+}
+getWeather();

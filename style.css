@@ -2,9 +2,10 @@ body {
   background-image: url(/Images/monsters-icons.jpeg);
   background-size: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   font-family: "Roboto", sans-serif;
+  flex-direction: column;
 }
 .texto {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -25,6 +26,13 @@ body {
 
 h1 {
   color: #4b86dd;
+}
+h2 {
+  color: #4b86dd;
+  margin: 1rem;
+}
+#CurrentWeather {
+  margin: 1rem;
 }
 p {
   margin: 2rem;
@@ -55,4 +63,18 @@ input:hover {
   display: none;
   color: red;
   margin: 5px;
+}
+.weather {
+  background-color: white;
+  width: 300px;
+  height: 150px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 5px 22px 34px -1px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
 }
