@@ -1,5 +1,5 @@
 const url = "https://icanhazdadjoke.com/";
-var parrafo = document.querySelector("p");
+var JokeParrafo = document.getElementById("Joke");
 var votacion = document.getElementById("errorVotacion");
 var currentWeather = document.getElementById("CurrentWeather");
 
@@ -7,6 +7,7 @@ let chisteObj = {};
 let currentJoke = {};
 let score;
 let reportAcudits = [];
+let i = 0;
 
 function votar(nota) {
   currentJoke.score = nota;
@@ -23,10 +24,15 @@ function handleGetJoke() {
   else if (!currentJoke.score) {
     votacion.style.display = "block";
   }
-  // Si está todo ok: Votado
-  else {
+  // Si está todo ok: Votado y i es par
+  else if (i % 2 == 0) {
     //saveJoke();
     getJoke();
+    i++;
+  }
+  // Si está todo ok: Votado y i es inpar
+  else if (i % 2 != 0) {
+    getChuckNorrisJoke();
   }
 }
 
@@ -37,14 +43,14 @@ async function getJoke() {
       Accept: "application/JSON",
     },
   });
-  currentJoke.joke = await chiste.json();
-  parrafo.innerHTML = currentJoke.joke.joke;
+  currentJoke = await chiste.json();
+  JokeParrafo.innerHTML = currentJoke.joke;
 }
 
 function saveJoke() {
   const d = new Date();
-  let fecha = d.toISOString();
-  currentJoke.date = fecha;
+  let date = d.toISOString();
+  currentJoke.date = date;
   reportAcudits.push(currentJoke);
   console.log(reportAcudits);
 }
@@ -58,3 +64,12 @@ async function getWeather() {
   currentWeather.innerHTML = responseData.weather[0].description;
 }
 getWeather();
+
+async function getChuckNorrisJoke() {
+  currentJoke = {};
+  const responseChuckNorris = await fetch(
+    "https://api.chucknorris.io/jokes/random"
+  );
+  currentJoke = await responseChuckNorris.json();
+  JokeParrafo.innerHTML = currentJoke.value;
+}
