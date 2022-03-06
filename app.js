@@ -2,6 +2,8 @@ const url = "https://icanhazdadjoke.com/";
 var JokeParrafo = document.getElementById("Joke");
 var votacion = document.getElementById("errorVotacion");
 var currentWeather = document.getElementById("CurrentWeather");
+var weatherIcon = document.getElementById("weatherIcon");
+var temperature = document.getElementById("temperature");
 
 let chisteObj = {};
 let currentJoke = {};
@@ -57,11 +59,15 @@ function saveJoke() {
 
 async function getWeather() {
   const responseWeather = await fetch(
-    "https://api.openweathermap.org/data/2.5/weather?lat=41.3828939&lon=2.1774322&appid=d8ec460060f73b8a21776452facfeeec&lang=ca"
+    "https://api.openweathermap.org/data/2.5/weather?q=barcelona&appid=d8ec460060f73b8a21776452facfeeec&lang=ca&units=metric"
   );
   let responseData = await responseWeather.json();
+  let centigrade = Math.round(responseData.main.temp);
+  let iconPng = responseData.weather[0].icon;
 
-  currentWeather.innerHTML = responseData.weather[0].description;
+  weatherIcon.innerHTML =
+    '<img src="http://openweathermap.org/img/wn/' + iconPng + '@2x.png"></img>';
+  temperature.innerHTML = `${centigrade} °C`;
 }
 getWeather();
 

@@ -13,21 +13,25 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="weather">
-      <h2>El temps actual es:</h2>
-      <p id="CurrentWeather"></p>
-    </div>
+    <header>
+      <div class="weather">
+        <div id="weatherIcon"></div>
+        <p id="temperature"></p>
+      </div>
+    </header>
     <div class="card">
       <h1>Preparat per riure? 🤣</h1>
       <p id="Joke">Fes clic al botó per veure un acudit</p>
       <div class="votacion">
         <p id="errorVotacion">Sisplau vota l'acudit</p>
-        <img src="/Images/3.png" onclick="votar(3)" />
-        <img src="/Images/2.png" onclick="votar(2)" />
-        <img src="/Images/1.png" onclick="votar(1)" />
+        <img src="/Images/3b.png" onclick="votar(3)" />
+        <img src="/Images/2b.png" onclick="votar(2)" />
+        <img src="/Images/1b.png" onclick="votar(1)" />
       </div>
       <input type="button" value="Següent acudit" onclick="handleGetJoke()" />
     </div>
+    <img class="img1" src="/Images/blob1.svg" />
+    <img class="img3" src="/Images/blob3.svg" />
     <script src="app.js"></script>
   </body>
 </html>
